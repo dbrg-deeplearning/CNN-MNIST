@@ -44,7 +44,7 @@ MNIST数据集来自美国国家标准与技术研究所，National Institute of
 
 ## 执行程序
 
-通过同样的方式，将```main.py```与```input_data.py```拷到个人目录下。
+通过同样的方式，将```main.py```与```input_data.py```拷到服务器上的项目目录下。
 
 执行程序前首先进入（启动）虚拟环境。
 
