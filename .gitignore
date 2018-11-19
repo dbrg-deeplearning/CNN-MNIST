@@ -1,0 +1,5 @@
+
+.DS_Store
+.idea/inspectionProfiles/Project_Default.xml
+*.xml
+.idea/mnist.iml
