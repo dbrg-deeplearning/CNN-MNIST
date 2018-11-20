@@ -64,10 +64,22 @@ python3 main.py
 ```
 即可开始执行程序，本项目的训练与测试都写在```main.py```内，不涉及存储与导出模型，程序中有详细注释，可供参考。
 
-## GPU使用配置(zhouyirong09-11.20)
+## GPU使用配置
 
-第13行至21行为GPU使用初始配置并附解释，可自行Google其它更详细资料。
+main.py第13行至21行为GPU使用初始配置并附解释，可自行Google其它更详细资料。
 
-重点强调第15行，实验发现若不添加此句时程序启动后tensorflow使用机器内所有GPU并分配指定显存导致浪费，请参见https://github.com/keras-team/keras/issues/6031
+重点强调第14行，实验发现若不添加此句时程序启动后tensorflow使用机器内所有GPU并分配指定显存导致浪费，请参见https://github.com/keras-team/keras/issues/6031
+
+```
+# 配置gpu可使用情况, 取值可为"-1"或"0"或"0,1"等, 机器有多块gpu时各gpu编号依次为0至m-1
+# "-1"表示不可使用gpu, "0"表示可使用0号gpu, "0,1"表示可同时使用0号和1号gpu
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+# 设置使用规则, allow_soft_placement为True时指若程序中指定使用的gpu満负荷，则自动使用可用的gpu
+config = tf.ConfigProto(allow_soft_placement=True)
+# allow_growth为True时指, gpu显存根据需要随程序进行分配, 为False时则程序启动直接分配整块gpu
+config.gpu_options.allow_growth = True
+# per_process_gpu_memory_fraction指最多使用gpu显存的比例, 若不指定tensorflow直接分配所用gpu所有显存
+config.gpu_options.per_process_gpu_memory_fraction = 0.9
+```
 
 其它同学若有更好的配置方法，请及时分享!
