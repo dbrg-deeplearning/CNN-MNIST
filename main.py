@@ -10,6 +10,7 @@ import input_data
 import tensorflow as tf
 import os
 
+
 # 配置gpu可使用情况, 取值可为"-1"或"0"或"0,1"等, 机器有多块gpu时各gpu编号依次为0至m-1
 # "-1"表示不可使用gpu, "0"表示可使用0号gpu, "0,1"表示可同时使用0号和1号gpu
 os.environ["CUDA_VISIBLE_DEVICES"]="1"

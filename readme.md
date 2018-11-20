@@ -70,4 +70,4 @@ python3 main.py
 
 重点强调第15行，实验发现若不添加此句时程序启动后tensorflow使用机器内所有GPU并分配指定显存导致浪费，请参见https://github.com/keras-team/keras/issues/6031
 
-其它同学若有更好的配置方法，请及时分享
+其它同学若有更好的配置方法，请及时分享!
