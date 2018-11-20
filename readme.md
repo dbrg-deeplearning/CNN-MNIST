@@ -63,3 +63,11 @@ source deeplearning/deeplearning/bin/activate
 python3 main.py
 ```
 即可开始执行程序，本项目的训练与测试都写在```main.py```内，不涉及存储与导出模型，程序中有详细注释，可供参考。
+
+## GPU使用配置(zhouyirong09-11.20)
+
+第13行至21行为GPU使用初始配置并附解释，可自行Google其它更详细资料。
+
+重点强调第15行，实验发现若不添加此句时程序启动后tensorflow使用机器内所有GPU并分配指定显存导致浪费，请参见https://github.com/keras-team/keras/issues/6031
+
+其它同学若有更好的配置方法，请及时分享
