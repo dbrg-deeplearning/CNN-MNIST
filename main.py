@@ -1,26 +1,19 @@
 #!usr/bin/env python  
 # -*- coding:utf-8 _*-
-""" 
-@author:yaoli 
-@file: mnistdemo.py
-@time: 2018/06/26 
-"""
 
 import input_data
 import tensorflow as tf
 import os
 
-
 # 配置gpu可使用情况, 取值可为"-1"或"0"或"0,1"等, 机器有多块gpu时各gpu编号依次为0至m-1
 # "-1"表示不可使用gpu, "0"表示可使用0号gpu, "0,1"表示可同时使用0号和1号gpu
-os.environ["CUDA_VISIBLE_DEVICES"]="1"
-# 设置使用规则, allow_soft_placement为True时指若程序中指定使用的gpu満负荷则自动使用可用的gpu
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+# 设置使用规则, allow_soft_placement为True时指若程序中指定使用的gpu満负荷，则自动使用可用的gpu
 config = tf.ConfigProto(allow_soft_placement=True)
-# allow_growth为True时指根据需要, gpu显存使用随程序进行分配, 为False时则程序启动直接分配整块gpu
+# allow_growth为True时指, gpu显存根据需要随程序进行分配, 为False时则程序启动直接分配整块gpu
 config.gpu_options.allow_growth = True
 # per_process_gpu_memory_fraction指最多使用gpu显存的比例, 若不指定tensorflow直接分配所用gpu所有显存
 config.gpu_options.per_process_gpu_memory_fraction = 0.9
-
 
 # 读取数据
 mnist = input_data.read_data_sets('MNIST-data', one_hot=True)
@@ -33,9 +26,11 @@ sess = tf.InteractiveSession()
 def conv2d(x, w):
     return tf.nn.conv2d(x, w, strides=[1, 1, 1, 1], padding='SAME')
 
+
 # 自定义池化函数
 def max_pool_2x2(x):
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
+
 
 # 设置占位符，尺寸为样本输入和输出的尺寸
 x = tf.placeholder(tf.float32, [None, 784])
