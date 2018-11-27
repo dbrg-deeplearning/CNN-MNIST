@@ -39,7 +39,7 @@ MNIST数据集来自美国国家标准与技术研究所，National Institute of
   可通过```ll```命令查看文件属于哪个用户。如修改某```file```文件所属用户，可通过下面命令：
 
     
-    chown file higis
+    chown higis file
   
 
 ## 执行程序
